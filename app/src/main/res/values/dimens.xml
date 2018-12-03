@@ -31,5 +31,6 @@
     <dimen name="padding_8x">64dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="progress_view_size">60dp</dimen>
+    <dimen name="elevation_x">5dp</dimen>
 
 </resources>

@@ -6,8 +6,8 @@ import android.arch.persistence.room.TypeConverters;
 
 import com.gocode.sharkfeed.dao.PhotoDao;
 import com.gocode.sharkfeed.dao.PhotosDao;
-import com.gocode.sharkfeed.models.response.Photo;
-import com.gocode.sharkfeed.models.response.Photos;
+import com.gocode.sharkfeed.models.Photo;
+import com.gocode.sharkfeed.models.Photos;
 
 /**
  * @author Go Code

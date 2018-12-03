@@ -3,6 +3,7 @@ package com.gocode.sharkfeed.models.response;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.gocode.sharkfeed.models.Photos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

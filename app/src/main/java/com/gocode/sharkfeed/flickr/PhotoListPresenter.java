@@ -5,15 +5,15 @@ import java.util.Map;
 
 import com.gocode.sharkfeed.Constants;
 import com.gocode.sharkfeed.api.ApiService;
-import com.gocode.sharkfeed.dao.DatabaseCallbacks3;
+import com.gocode.sharkfeed.dao.DatabaseCallbacks1;
 import com.gocode.sharkfeed.dao.DatabaseInteractor;
 import com.gocode.sharkfeed.models.response.PhotoResponse;
-import com.gocode.sharkfeed.models.response.Photos;
+import com.gocode.sharkfeed.models.Photos;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class PhotoListPresenter implements Contracts.Presenter, DatabaseCallbacks3 {
+public class PhotoListPresenter implements Contracts.Presenter, DatabaseCallbacks1 {
 
     public static final String QUERY_PARAM_API_KEY = "api_key";
     public static final String QUERY_PARAM_NO_JSON_CALLBACK = "nojsoncallback";
@@ -85,11 +85,11 @@ public class PhotoListPresenter implements Contracts.Presenter, DatabaseCallback
                 .subscribe(photos -> {
                     databaseInteractor.setPhotos(photos);
                     if (back) {
-                        photoView.populateData(photos.getPhoto());
-                    } else {
                         photoView.populateBackData(photos.getPhoto());
+                    } else {
+                        photoView.populateData(photos.getPhoto());
                     }
-                });
+                }, this::onFailed);
 //                .flatMapIterable(list -> list)
 //                .filter(item -> item.getUrl_o() != null)
 //                .toList()

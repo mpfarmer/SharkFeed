@@ -1,13 +1,13 @@
 package com.gocode.sharkfeed.flickr.detail;
 
-import com.gocode.sharkfeed.dao.DatabaseCallbacks2;
+import com.gocode.sharkfeed.dao.DatabaseCallbacks;
 import com.gocode.sharkfeed.dao.DatabaseInteractor;
-import com.gocode.sharkfeed.models.response.Photo;
+import com.gocode.sharkfeed.models.Photo;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class PhotoDetailPresenter implements Contracts.Presenter, DatabaseCallbacks2 {
+public class PhotoDetailPresenter implements Contracts.Presenter, DatabaseCallbacks {
 
     private Contracts.View photoDetailView;
     private final DatabaseInteractor databaseInteractor;
@@ -21,7 +21,7 @@ public class PhotoDetailPresenter implements Contracts.Presenter, DatabaseCallba
 
     @Override
     public void init() {
-        photoDetailView.PopulateData();
+        photoDetailView.populateData();
     }
 
     @Override

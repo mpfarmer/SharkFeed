@@ -1,7 +1,7 @@
 package com.gocode.sharkfeed.dao;
 
-import com.gocode.sharkfeed.models.response.Photo;
-import com.gocode.sharkfeed.models.response.Photos;
+import com.gocode.sharkfeed.models.Photo;
+import com.gocode.sharkfeed.models.Photos;
 
 import io.reactivex.Single;
 import lombok.NonNull;
@@ -21,8 +21,8 @@ public interface DatabaseInteractor {
 
     Single<Photos> getPhotos(int page);
 
-    void setCallbacks2(DatabaseCallbacks2 callbacks);
+    void setCallbacks2(DatabaseCallbacks callbacks);
 
-    void setCallbacks3(DatabaseCallbacks3 callbacks);
+    void setCallbacks3(DatabaseCallbacks1 callbacks);
 
 }

@@ -1,13 +1,13 @@
 package com.gocode.sharkfeed.flickr.detail;
 
-import com.gocode.sharkfeed.models.response.Photo;
+import com.gocode.sharkfeed.models.Photo;
 
 public interface Contracts {
 
     interface View {
         void initView();
 
-        void PopulateData();
+        void populateData();
 
         void onCompleted(Photo photo);
 

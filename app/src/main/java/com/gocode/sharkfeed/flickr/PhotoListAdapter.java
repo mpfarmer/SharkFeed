@@ -18,7 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.gocode.sharkfeed.R;
-import com.gocode.sharkfeed.models.response.Photo;
+import com.gocode.sharkfeed.models.Photo;
 import lombok.Getter;
 
 public class PhotoListAdapter extends RecyclerView.Adapter<PhotoListAdapter.PhotoViewHolder> {

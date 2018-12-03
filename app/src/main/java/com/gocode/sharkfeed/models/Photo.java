@@ -1,4 +1,4 @@
-package com.gocode.sharkfeed.models.response;
+package com.gocode.sharkfeed.models;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -6,6 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -119,5 +120,13 @@ public class Photo implements Parcelable {
         dest.writeString(this.url_t == null ? "": this.url_t);
         dest.writeString(this.url_c == null ? "": this.url_c);
         dest.writeString(this.url_l == null ? "": this.url_l);
+    }
+
+    public String getUrl() {
+        return !TextUtils.isEmpty(url_o) ?
+                url_o : (!TextUtils.isEmpty(url_l) ?
+                url_l : (!TextUtils.isEmpty(url_c) ?
+                url_c : (!TextUtils.isEmpty(url_t) ?
+                url_t: "blank:about")));
     }
 }

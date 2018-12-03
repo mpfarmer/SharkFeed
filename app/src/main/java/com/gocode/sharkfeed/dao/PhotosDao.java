@@ -6,7 +6,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.gocode.sharkfeed.models.response.Photos;
+import com.gocode.sharkfeed.models.Photos;
 import io.reactivex.Single;
 
 @Dao

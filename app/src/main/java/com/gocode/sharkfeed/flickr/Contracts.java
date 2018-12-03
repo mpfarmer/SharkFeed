@@ -2,7 +2,7 @@ package com.gocode.sharkfeed.flickr;
 
 import java.util.List;
 
-import com.gocode.sharkfeed.models.response.Photo;
+import com.gocode.sharkfeed.models.Photo;
 
 public interface Contracts {
 

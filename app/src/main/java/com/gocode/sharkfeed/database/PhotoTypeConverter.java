@@ -8,7 +8,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import com.gocode.sharkfeed.models.response.Photo;
+import com.gocode.sharkfeed.models.Photo;
 
 public class PhotoTypeConverter {
 

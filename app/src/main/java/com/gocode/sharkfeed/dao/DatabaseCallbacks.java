@@ -1,8 +1,8 @@
 package com.gocode.sharkfeed.dao;
 
-import com.gocode.sharkfeed.models.response.Photo;
+import com.gocode.sharkfeed.models.Photo;
 
-public interface DatabaseCallbacks2 {
+public interface DatabaseCallbacks {
     void onDataInserted(Photo data);
 
     void onFailed(Throwable throwable);

@@ -9,30 +9,7 @@
     <RelativeLayout
         android:id="@+id/rl_parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible">
-
-        <Button
-            android:id="@+id/btn_download"
-            android:layout_alignParentBottom="true"
-
-            android:layout_marginLeft="@dimen/margin_4x"
-            android:layout_marginBottom="@dimen/margin_3x"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <!--&lt;!&ndash; This initially-hidden ImageView will hold the expanded/zoomed version of-->
-     <!--the images above. Without transformations applied, it takes up the entire-->
-     <!--screen. To achieve the "zoom" animation, this view's bounds are animated-->
-     <!--from the bounds of the thumbnail button above, to its final laid-out-->
-     <!--bounds.-->
-     <!--&ndash;&gt;-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/iv_expanded"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:src="@drawable/ic_placeholder"-->
-            <!--android:visibility="invisible" />-->
+        android:layout_height="match_parent">
 
         <com.gocode.sharkfeed.ZoomImageView
             android:id="@+id/iv_photo_original"
@@ -40,5 +17,103 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:src="@drawable/ic_placeholder" />
+
+        <LinearLayout
+            android:id="@+id/ll_photo_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/v_separator"
+            android:layout_marginStart="@dimen/margin_3x"
+            android:layout_marginEnd="@dimen/margin_3x"
+            android:layout_marginBottom="@dimen/margin_x"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/background_light" />
+
+            <TextView
+                android:id="@+id/tv_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/background_light" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/v_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/ll_download"
+            android:layout_marginStart="@dimen/margin_3x"
+            android:layout_marginEnd="@dimen/margin_3x"
+            android:background="@android:color/background_light" />
+
+        <LinearLayout
+            android:id="@+id/ll_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_4x"
+            android:layout_marginBottom="@dimen/margin_3x"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageButton
+                android:id="@+id/btn_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_x"
+                android:layout_marginBottom="@dimen/margin_3x"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:focusable="false"
+                android:src="@drawable/download" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_x"
+                android:clickable="false"
+                android:focusable="false"
+                android:text="@string/download"
+                android:textColor="@android:color/background_light" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_open_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/margin_4x"
+            android:layout_marginBottom="@dimen/margin_3x"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageButton
+                android:id="@+id/btn_open_app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_x"
+                android:layout_marginBottom="@dimen/margin_3x"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:focusable="false"
+                android:src="@drawable/open_in_flickr" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_x"
+                android:clickable="false"
+                android:focusable="false"
+                android:text="@string/open_in_app"
+                android:textColor="@android:color/background_light" />
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

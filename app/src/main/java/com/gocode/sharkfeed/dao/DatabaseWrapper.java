@@ -3,8 +3,8 @@ package com.gocode.sharkfeed.dao;
 import android.os.AsyncTask;
 
 import com.gocode.sharkfeed.database.AppDatabase;
-import com.gocode.sharkfeed.models.response.Photo;
-import com.gocode.sharkfeed.models.response.Photos;
+import com.gocode.sharkfeed.models.Photo;
+import com.gocode.sharkfeed.models.Photos;
 
 import io.reactivex.Single;
 
@@ -15,8 +15,8 @@ import io.reactivex.Single;
 public class DatabaseWrapper implements DatabaseInteractor {
 
     private final AppDatabase appDatabase;
-    private DatabaseCallbacks2 callbacks2;
-    private DatabaseCallbacks3 callbacks3;
+    private DatabaseCallbacks callbacks2;
+    private DatabaseCallbacks1 callbacks3;
 
     public DatabaseWrapper(AppDatabase appDatabase) {
         this.appDatabase = appDatabase;
@@ -67,12 +67,12 @@ public class DatabaseWrapper implements DatabaseInteractor {
     }
 
     @Override
-    public void setCallbacks2(DatabaseCallbacks2 callbacks) {
+    public void setCallbacks2(DatabaseCallbacks callbacks) {
         this.callbacks2 = callbacks;
     }
 
     @Override
-    public void setCallbacks3(DatabaseCallbacks3 callbacks) {
+    public void setCallbacks3(DatabaseCallbacks1 callbacks) {
         this.callbacks3 = callbacks;
     }
 }

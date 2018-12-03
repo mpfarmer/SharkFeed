@@ -6,4 +6,7 @@
     <string name="please_wait_while_we_fetch_photos">Please wait, while we fetch photos</string>
     <string name="something_went_wrong">Oops! Something went wrong</string>
     <string name="title">SharkFeed</string>
+    <string name="download">Download</string>
+    <string name="saving">Saving</string>
+    <string name="open_in_app">Open in App</string>
 </resources>

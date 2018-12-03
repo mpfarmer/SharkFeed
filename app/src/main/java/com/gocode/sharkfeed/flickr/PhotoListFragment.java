@@ -12,7 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
+import android.widget.ImageView;
 
 import com.gocode.sharkfeed.BaseApplication;
 import com.gocode.sharkfeed.BaseFragment;
@@ -20,7 +20,7 @@ import com.gocode.sharkfeed.Constants;
 import com.gocode.sharkfeed.R;
 import com.gocode.sharkfeed.api.ApiService;
 import com.gocode.sharkfeed.flickr.detail.PhotoDetailActivity;
-import com.gocode.sharkfeed.models.response.Photo;
+import com.gocode.sharkfeed.models.Photo;
 import com.jakewharton.rxbinding2.support.v7.widget.RxRecyclerView;
 
 import java.util.List;
@@ -40,7 +40,7 @@ public class PhotoListFragment extends BaseFragment implements Contracts.View {
     @BindView(R.id.rv_photo_list)
     RecyclerView rvPhotoList;
     @BindView(R.id.progress_bar)
-    ProgressBar progressBar;
+    ImageView progressBar;
     @BindView(R.id.tv_info)
     AppCompatTextView tvInfo;
     Unbinder unbinder;
@@ -143,15 +143,12 @@ public class PhotoListFragment extends BaseFragment implements Contracts.View {
         photoListAdapter = new PhotoListAdapter(getContext(), this);
         rvPhotoList.setAdapter(photoListAdapter);
         presenter.fetchPhotos(pageIndex++);
-        slPhotoList.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                if (pageIndex == 1) {
-                    return;
-                }
-                pageIndex++;
-                presenter.fetchPhotos(pageIndex);
+        slPhotoList.setOnRefreshListener(() -> {
+            if (pageIndex == 1) {
+                return;
             }
+            pageIndex++;
+            presenter.fetchPhotos(pageIndex);
         });
     }
 
