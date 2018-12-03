@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/btn_download"
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginLeft="@dimen/margin_4x"
+            android:layout_marginBottom="@dimen/margin_3x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <!--&lt;!&ndash; This initially-hidden ImageView will hold the expanded/zoomed version of-->
+     <!--the images above. Without transformations applied, it takes up the entire-->
+     <!--screen. To achieve the "zoom" animation, this view's bounds are animated-->
+     <!--from the bounds of the thumbnail button above, to its final laid-out-->
+     <!--bounds.-->
+     <!--&ndash;&gt;-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_expanded"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:src="@drawable/ic_placeholder"-->
+            <!--android:visibility="invisible" />-->
+
+        <com.gocode.sharkfeed.ZoomImageView
+            android:id="@+id/iv_photo_original"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_placeholder" />
+    </RelativeLayout>
+</LinearLayout>

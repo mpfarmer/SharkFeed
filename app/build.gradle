@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+android {
+    buildToolsVersion '28.0.3'
+
+    final API_URL_DEV = "https://api.flickr.com"
+
+    defaultConfig {
+        applicationId "com.gocode.sharkfeed"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+
+        // setting custom name for apk
+        project.ext.set("archivesBaseName", "MVPDaggerTestingDemo-" + defaultConfig.versionName
+                + "-vc" + defaultConfig.versionCode)
+    }
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField 'String', 'API_URL', "\"" + API_URL_DEV + "\""
+        }
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support:support-v4:$supportLibraryVersion"
+
+    // Use Retrofit for API interaction
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+
+    // Lombok
+
+    compileOnly 'org.projectlombok:lombok:1.16.18'
+    annotationProcessor "org.projectlombok:lombok:1.16.18"
+
+    // Timber for logging
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+
+    // Butterknife for view injection
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // Dagger 2
+    // Dagger 2 dependencies
+    implementation 'com.google.dagger:dagger:2.19'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.19'
+    compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+
+    //Tests
+    // Required -- JUnit 4 framework
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation "com.android.support:support-annotations:$supportLibraryVersion"
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    // Optional -- Mockito framework
+    testImplementation "org.mockito:mockito-core:2.19.0"
+    // Optional -- UI testing with Espresso
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // RX Android
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation 'com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:2.0.0'
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    implementation "android.arch.persistence.room:rxjava2:1.1.1"
+
+    implementation 'jp.wasabeef:glide-transformations:3.0.1'
+
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+}
